@@ -1,19 +1,13 @@
-const express = require('express'),
-    app = express(),
-    helmet = require('helmet')
+const Telegraf = require('telegraf'),
+    bot = new Telegraf('643729529:AAHBYqdUy1BbH_QbP8R-19mqjVxbX843Qgw')
 
-app.use(express.json())
-app.use(helmet())
-app.use(helmet.noCache())
-app.use(helmet.frameguard())
+bot.start((ctx) => ctx.reply('Oi!'))
+bot.hears(['Oi', 'oi'], (ctx) => ctx.reply('tudo bem?'))
+bot.hears(['Tudo', 'tudo'], (ctx) => ctx.reply('que bom!'))
+bot.hears(['Vsf', 'vsf'], (ctx) => ctx.reply('vai voce'))
 
-app.get('/', (req, res) => {
-    res.status(200).json({ "abc": 123 })
-})
+bot.command('oldschool', (ctx) => ctx.reply('Hello'))
+bot.command('modern', ({ reply }) => reply('Yo'))
+bot.command('hipster', Telegraf.reply('λ'))
 
-app.post('/teste', (req, res) => {
-
-    res.status(200).json(req.body)
-})
-
-app.listen(3000)
+bot.startPolling()

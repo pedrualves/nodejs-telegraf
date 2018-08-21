@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/pedrualves/nodejs-telegraf#readme",
   "dependencies": {
-    "express": "4.16.3",
-    "helmet": "3.13.0"
+    "telegraf": "3.22.2"
   }
 }
