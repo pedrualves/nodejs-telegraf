@@ -19,6 +19,6 @@ bot.command('hipster', Telegraf.reply('λ'))
 
 bot.startPolling()
 
-server.listen(port, hostname, () => {
+server.listen(port, () => {
     console.log(`Server running at ${port}`);
 });
